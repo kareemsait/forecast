@@ -8,7 +8,7 @@ https://darksky.net/dev
 
 **Requirements:**
 
-Dakr Sky API Key
+Dark Sky API Key
 
 Python 3.7
 
