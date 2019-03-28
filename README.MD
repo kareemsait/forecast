@@ -62,7 +62,7 @@ Alternatively, you can run the python script by
 
 **Tests**
 
-There is a single "observed_test.json" file provided for testing. Uncommenting the code on line 92 inside the 
+There is a single "observed_test.json" file provided for testing. Uncommenting the code on line 118 inside the 
 "compareWeather" function will load the test json. This will demonstrate the evaluation logic is functional by showing
 what key/value pairs are different between forecast and observed data. This test json will not be written to 
 observed.json as the functionality it is testing is the evaluation logic only.

@@ -27,7 +27,7 @@ class Comparotor():
 
         # Create request URL to dark sky api for Daily FORECAST
         requestURL = 'https://api.darksky.net/forecast/' + key + '/' + lat + ',' + lon + options
-        logging.debug(requestURL)
+        logging.debug('Request URL: ' + requestURL)
         forecastRequest = requests.get(requestURL)
 
         # Notify of Error if failed to request API and exit
@@ -37,6 +37,8 @@ class Comparotor():
 
         # Convert request result to json
         forecastJson = forecastRequest.json()
+
+        # Validate we have retrieved forecast data
         numElm = len(forecastJson['daily']['data'])
         logging.debug('Forecast data block size: ' + str(numElm))
         if numElm < 2:
@@ -53,7 +55,7 @@ class Comparotor():
         # Create request url for time machine data using t which is the current timestamp
         # (this should retrieve observational data for today)
         requestURL = 'https://api.darksky.net/forecast/' + key + '/' + lat + ',' + lon + ',' + t + options
-        logging.debug(requestURL)
+        logging.debug('Request URL: ' + requestURL)
 
         observedRequest = requests.get(requestURL)
 
@@ -62,8 +64,10 @@ class Comparotor():
             exit(2)
 
         observedJson = observedRequest.json()
+
+        # Validate we have retrieved time machine data
         numElm = len(observedJson['daily']['data'])
-        logging.debug('Forecast data block size: ' + str(numElm))
+        logging.debug('Observed data block size: ' + str(numElm))
         if numElm > 1:
             logging.error("Number of elements indicates this is a forecast request instead of a time machine request")
             exit(4)
@@ -71,6 +75,10 @@ class Comparotor():
         # There is only one element but it is a list, so retrieve the element in order to do key/value comparisons
         observedToday = observedJson['daily']['data'][0]
         observedTime = observedToday['time']
+
+        # Compare forecast and observed time
+        logging.debug('Forecast time is: ' + str(forecastTime))
+        logging.debug('Observed time is: ' + str(observedTime))
 
         if forecastTime != observedTime:
             logging.error("The time of the comparison does not match")
