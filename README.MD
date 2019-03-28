@@ -58,11 +58,11 @@ way to verify that the data being compared is between the "FORECAST" data and "O
 8. log level is set to "DEBUG" to see actual key by key comparisons and more information. Change to "INFO" for summary
 
 Alternatively, you can run the python script by
-`python3 comparator.py` from the command line (on a mac), but you will still need to set the env variable in step 5
+`python3 comparator.py` from the command line (on a mac), but you will still need to set the env variable in step 6
 
 **Tests**
 
-There is a single "observed_test.json" file provided for testing. Uncommenting the code on line 92 inside the 
+There is a single "observed_test.json" file provided for testing. Uncommenting the code on line 110 inside the 
 "compareWeather" function will load the test json. This will demonstrate the evaluation logic is functional by showing
 what key/value pairs are different between forecast and observed data. This test json will not be written to 
 observed.json as the functionality it is testing is the evaluation logic only.
