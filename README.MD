@@ -4,7 +4,11 @@ Application developed by Kareem Sait
 
 Powered by Dark Sky API
 
+https://darksky.net/dev
+
 **Requirements:**
+
+Dakr Sky API Key
 
 Python 3.7
 
@@ -43,16 +47,18 @@ way to verify that the data being compared is between the "FORECAST" data and "O
 
 **Running the application**
 
-1. Clone the repo to your working directory
-2. Import the project into your favourite IDE (developed in IntelliJ)
-3. Validate you have python 3.7 installed and configured as your SDK
-4. Ensure the requests library is installed.
+1. Register and retrieve an API key from Dark Sky (https://darksky.net/dev)
+2. Clone the repo to your working directory
+3. Import the project into your favourite IDE (developed in IntelliJ)
+4. Validate you have python 3.7 installed and configured as your SDK
+5. Ensure the requests library is installed.
 `sudo pip install requests `   
-5. Run comparator.py
-6. log level is set to "DEBUG" to see actual key by key comparisons and more information. Change to "INFO" for summary
+5. Set the enviornemt variable "darksky_key" to be your api key from step 1.
+6. Run comparator.py
+7. log level is set to "DEBUG" to see actual key by key comparisons and more information. Change to "INFO" for summary
 
 Alternatively, you can run the python script by
-`python3 comparator.py` from the command line (on a mac).
+`python3 comparator.py` from the command line (on a mac), but you will still need to set the env variable in step 5
 
 **Tests**
 
